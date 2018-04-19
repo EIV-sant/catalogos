@@ -125,6 +125,20 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Repositorio de releases</name>
+			<url>${nexus.url}/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Repositorio de snapshots</name>
+			<url>${nexus.url}/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+
+	</distributionManagement>
 
 
 </project>
