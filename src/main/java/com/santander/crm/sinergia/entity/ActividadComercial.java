@@ -16,6 +16,9 @@ public class ActividadComercial {
 	@Column(name = "TXT_DESC_ACT")
 	private String nombre;
 
+	@Column(name = "VAL_DISP")
+	private Integer disp;
+
 	public Integer getId() {
 		return id;
 	}
@@ -30,6 +33,14 @@ public class ActividadComercial {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Integer getDisp() {
+		return disp;
+	}
+
+	public void setDisp(Integer disp) {
+		this.disp = disp;
 	}
 
 }

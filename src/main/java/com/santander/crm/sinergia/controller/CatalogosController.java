@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
 import com.santander.crm.sinergia.entity.Estado;
-import com.santander.crm.sinergia.entity.EstadoCivil;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Sucursal;
@@ -95,17 +94,6 @@ public class CatalogosController {
 		List<ActividadComercial> response = catalogoService.getAllActividadesComerciales();
 		
 		return new ResponseEntity<List<ActividadComercial>>(response, header, hs);
-	}
-	
-	@RequestMapping(value = "/catalogos/estadosCiviles", method = { RequestMethod.GET })
-	@CrossOrigin(origins = "*")
-	public ResponseEntity<List<EstadoCivil>> estadosCiviles(){
-		HttpStatus hs = HttpStatus.OK;		
-		HttpHeaders header = new HttpHeaders();
-		
-		List<EstadoCivil> response = catalogoService.getAllEstadosCiviles();
-		
-		return new ResponseEntity<List<EstadoCivil>>(response, header, hs);
 	}
 	
 	@RequestMapping(value = "/catalogos/sucursales", method = { RequestMethod.POST })

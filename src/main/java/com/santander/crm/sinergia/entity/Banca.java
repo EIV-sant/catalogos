@@ -15,7 +15,7 @@ public class Banca {
 
 	@Column(name = "TXT_DESC_BCA")
 	private String nombre;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -31,5 +31,7 @@ public class Banca {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	
 
 }
