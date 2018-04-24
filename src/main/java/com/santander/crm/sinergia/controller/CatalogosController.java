@@ -2,8 +2,6 @@ package com.santander.crm.sinergia.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
@@ -11,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +19,6 @@ import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Sucursal;
-import com.santander.crm.sinergia.filter.RegionZonaFilter;
 import com.santander.crm.sinergia.service.CatalogoService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -51,7 +47,11 @@ public class CatalogosController {
 		return new ResponseEntity<List<Estado>>(response, header, hs);
 	}
 	
-	
+	/**
+	 * Endpoint para recuperar el catálogo de localidades de un estado
+	 * @param idEstado el identificador del estado
+	 * @return Lista de localidades
+	 */
 	@RequestMapping(value = "/catalogos/estados/{idEstado}/localidades", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<Localidad>> localidades(@PathVariable Integer idEstado){
@@ -63,6 +63,10 @@ public class CatalogosController {
 		return new ResponseEntity<List<Localidad>>(response, header, hs);
 	}
 	
+	/**
+	 * Endpoint para recuperar el catálogo de productos
+	 * @return Lista de productos
+	 */
 	@RequestMapping(value = "/catalogos/productos", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<Producto>> productos(){
@@ -74,6 +78,10 @@ public class CatalogosController {
 		return new ResponseEntity<List<Producto>>(response, header, hs);
 	}
 	
+	/**
+	 * Endpoint para recuperar el catálogo de bancas
+	 * @return Lista de bancas
+	 */
 	@RequestMapping(value = "/catalogos/bancas", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<Banca>> bancas(){
@@ -85,6 +93,10 @@ public class CatalogosController {
 		return new ResponseEntity<List<Banca>>(response, header, hs);
 	}
 	
+	/**
+	 * Endpoint para recuperar el catálogo de actividades comerciales
+	 * @return Lista de actividades comerciales
+	 */
 	@RequestMapping(value = "/catalogos/actividadesComerciales", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<ActividadComercial>> actividadesComerciales(){
@@ -96,17 +108,11 @@ public class CatalogosController {
 		return new ResponseEntity<List<ActividadComercial>>(response, header, hs);
 	}
 	
-	@RequestMapping(value = "/catalogos/sucursales", method = { RequestMethod.POST })
-	@CrossOrigin(origins = "*")
-	public ResponseEntity<List<Sucursal>> sucursalesByFilter(@Valid @RequestBody(required=false) RegionZonaFilter filter){
-		HttpStatus hs = HttpStatus.OK;		
-		HttpHeaders header = new HttpHeaders();
-		
-		List<Sucursal> response = catalogoService.getSucursalesByFilter(filter);
-		
-		return new ResponseEntity<List<Sucursal>>(response, header, hs);
-	}
-	
+	/**
+	 * Endpoint para recuperar el catálogo de sucursales de una localidad
+	 * @param idLocalidad el identificador de la localidad
+	 * @return Lista de sucursales
+	 */
 	@RequestMapping(value = "/catalogos/sucursales/{idLocalidad}", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<Sucursal>> sucursalesByLocalidad(@PathVariable Integer idLocalidad){
@@ -118,5 +124,17 @@ public class CatalogosController {
 		return new ResponseEntity<List<Sucursal>>(response, header, hs);
 	}
 	
+	/**
+	 * Endpoint test para comprobar disponibilidad de micro servicio
+	 * @return
+	 */
+	@RequestMapping(value = "catalogos/pruebas", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<String> pruebas() {
+		
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		return new ResponseEntity<String>("Hola mundo",header, hs);
+	}
 
 }
