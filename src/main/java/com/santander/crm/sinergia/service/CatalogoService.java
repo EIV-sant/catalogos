@@ -8,6 +8,7 @@ import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Sucursal;
+import com.santander.crm.sinergia.entity.Telefono;
 import com.santander.crm.sinergia.filter.RegionZonaFilter;
 
 public interface CatalogoService {
@@ -25,5 +26,7 @@ public interface CatalogoService {
 	List<Sucursal> getSucursalesByFilter(RegionZonaFilter filter);
 
 	List<Sucursal> getSucursalesByLocalidad(Integer idLocalidad);
+	
+	List<Telefono> getAllTelefonos();
 
 }

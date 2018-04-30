@@ -19,6 +19,7 @@ import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Sucursal;
+import com.santander.crm.sinergia.entity.Telefono;
 import com.santander.crm.sinergia.service.CatalogoService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -122,6 +123,21 @@ public class CatalogosController {
 		List<Sucursal> response = catalogoService.getSucursalesByLocalidad(idLocalidad);
 		
 		return new ResponseEntity<List<Sucursal>>(response, header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de tipos de telefono
+	 * @return Lista de tipos de telefono
+	 */
+	@RequestMapping(value = "/catalogos/telefonos", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Telefono>> telefonos(){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Telefono> response = catalogoService.getAllTelefonos();
+		
+		return new ResponseEntity<List<Telefono>>(response, header, hs);
 	}
 	
 	/**

@@ -11,12 +11,14 @@ import com.santander.crm.sinergia.dao.EstadoRepository;
 import com.santander.crm.sinergia.dao.LocalidadRepository;
 import com.santander.crm.sinergia.dao.ProductoRepository;
 import com.santander.crm.sinergia.dao.SucursalRepository;
+import com.santander.crm.sinergia.dao.TelefonoRepository;
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Sucursal;
+import com.santander.crm.sinergia.entity.Telefono;
 import com.santander.crm.sinergia.filter.RegionZonaFilter;
 import com.santander.crm.sinergia.service.CatalogoService;
 
@@ -40,6 +42,9 @@ public class CatalogoServiceImpl implements CatalogoService {
 
 	@Autowired
 	SucursalRepository sucursalRepository;
+	
+	@Autowired
+	TelefonoRepository telefonoRepository;
 
 	@Override
 	public List<Estado> getAllEstados() {
@@ -74,6 +79,11 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Sucursal> getSucursalesByLocalidad(Integer idLocalidad) {
 		return sucursalRepository.findSucursalesByIdLocalidad(idLocalidad);
+	}
+
+	@Override
+	public List<Telefono> getAllTelefonos() {
+		return (List<Telefono>) telefonoRepository.findAll();
 	}
 
 }
