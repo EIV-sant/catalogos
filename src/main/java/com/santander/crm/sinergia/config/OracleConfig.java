@@ -16,14 +16,14 @@ import oracle.jdbc.pool.OracleDataSource;
 @Configuration
 public class OracleConfig {
 	
-	@Value("${url.oracle}")
+	@Value("${spring.datasource.url}")
 	//@Value("${spring.wsneo.endpoint.${spring.profiles.active}}")
 	private String urlOracle = "jdbc:oracle:thin:http://localhost:8080/ODMXNEOP";     
 
-	@Value("${user.oracle}")
+	@Value("${spring.datasource.username}")
 	private String userOracle = "prueba";
 
-	@Value("${pass.oracle}")
+	@Value("${spring.datasource.password}")
 	private String passOracle = "prueba";
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(OracleConfig.class);
