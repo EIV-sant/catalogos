@@ -11,8 +11,8 @@ spring:
       label: master
       profile: ${spring.profiles.active}
   datasource:
-    url: jdbc:oracle:thin:@180.181.159.40:1521:xe
-    username: sin
-    password: sinergia
+    url: ${url.oracle}
+    username: ${user.oracle}
+    password: ${pass.oracle}
     driver-class-name: oracle.jdbc.driver.OracleDriver 
       
