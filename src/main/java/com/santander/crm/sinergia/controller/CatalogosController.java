@@ -150,7 +150,7 @@ public class CatalogosController {
 		
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
-		return new ResponseEntity<String>("Hola mundo",header, hs);
+		return new ResponseEntity<String>("Hola mundo...",header, hs);
 	}
 
 }
