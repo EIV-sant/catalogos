@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.santander.crm.sinergia.dao.ActividadComercialRepository;
 import com.santander.crm.sinergia.dao.BancaRepository;
+import com.santander.crm.sinergia.dao.EjecutivoRepository;
 import com.santander.crm.sinergia.dao.EstadoRepository;
 import com.santander.crm.sinergia.dao.LocalidadRepository;
 import com.santander.crm.sinergia.dao.ProductoRepository;
@@ -14,6 +15,7 @@ import com.santander.crm.sinergia.dao.SucursalRepository;
 import com.santander.crm.sinergia.dao.TelefonoRepository;
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
+import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
@@ -45,6 +47,9 @@ public class CatalogoServiceImpl implements CatalogoService {
 	
 	@Autowired
 	TelefonoRepository telefonoRepository;
+	
+	@Autowired
+	EjecutivoRepository ejecutivoRepository;
 
 	@Override
 	public List<Estado> getAllEstados() {
@@ -84,6 +89,11 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Telefono> getAllTelefonos() {
 		return (List<Telefono>) telefonoRepository.findAll();
+	}
+	
+	@Override
+	public List<Ejecutivo> getEjecutivosByIdTpoBca(Integer idTpoBca) {
+		return ejecutivoRepository.findEjecutivosByIdTpoBca(idTpoBca);
 	}
 
 }

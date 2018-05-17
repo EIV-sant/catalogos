@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
+import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
@@ -28,5 +29,7 @@ public interface CatalogoService {
 	List<Sucursal> getSucursalesByLocalidad(Integer idLocalidad);
 	
 	List<Telefono> getAllTelefonos();
+	
+	List<Ejecutivo> getEjecutivosByIdTpoBca(Integer idTpoBca);
 
 }

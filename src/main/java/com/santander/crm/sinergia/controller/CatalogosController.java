@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
+import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
@@ -151,6 +152,22 @@ public class CatalogosController {
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
 		return new ResponseEntity<String>("Hola mundo...",header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de ejecutivos de una banca
+	 * @param idTpoBca el identificador de la banca
+	 * @return Lista de ejecutivos
+	 */
+	@RequestMapping(value = "/catalogos/ejecutivo/{idTpoBca}", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Ejecutivo>> ejecutivosByBanca(@PathVariable Integer idTpoBca){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Ejecutivo> response = catalogoService.getEjecutivosByIdTpoBca(idTpoBca);
+		
+		return new ResponseEntity<List<Ejecutivo>>(response, header, hs);
 	}
 
 }
