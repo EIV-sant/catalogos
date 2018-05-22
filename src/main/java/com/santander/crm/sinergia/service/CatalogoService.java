@@ -31,5 +31,7 @@ public interface CatalogoService {
 	List<Telefono> getAllTelefonos();
 	
 	List<Ejecutivo> getEjecutivosByIdTpoBca(Integer idTpoBca);
+	
+	List<Ejecutivo> getEjecutivosByIdZona(Integer idZona);
 
 }

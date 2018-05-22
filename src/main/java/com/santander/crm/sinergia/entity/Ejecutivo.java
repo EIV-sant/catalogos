@@ -20,10 +20,18 @@ public class Ejecutivo {
 	@Column(name = "TXT_NOM_EJV")
 	private String nombre;
 	
+	@Column(name = "NUM_CC")
+	private Integer idSucursal;
+	
 	@JsonIgnore
 	@ManyToOne(optional=true)
-	@JoinColumn(name = "COD_CVE_BAN")
+	@JoinColumn(name = "ID_TPO_BCA")
 	private Banca banca;
+	
+	@JsonIgnore
+	@ManyToOne(optional=true)
+	@JoinColumn(name = "ID_TPO_EJV")
+	private Tipo tipo;
 
 	public String getOfiAct() {
 		return ofiAct;
@@ -41,12 +49,28 @@ public class Ejecutivo {
 		this.nombre = nombre;
 	}
 
+	public Integer getIdSucursal() {
+		return idSucursal;
+	}
+
+	public void setIdSucursal(Integer idSucursal) {
+		this.idSucursal = idSucursal;
+	}
+
 	public Banca getBanca() {
 		return banca;
 	}
 
 	public void setBanca(Banca banca) {
 		this.banca = banca;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 	
 }

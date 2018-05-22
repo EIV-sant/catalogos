@@ -169,5 +169,22 @@ public class CatalogosController {
 		
 		return new ResponseEntity<List<Ejecutivo>>(response, header, hs);
 	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de ejecutivos BEI
+	 * @param idZona el num_cc
+	 * @return Lista de ejecutivos
+	 */
+	@RequestMapping(value = "/catalogos/ejecutivosBei/{idZona}", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Ejecutivo>> ejecutivosByIdZona(@PathVariable Integer idZona) {
+		
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Ejecutivo> response = catalogoService.getEjecutivosByIdZona(idZona);
+		
+		return new ResponseEntity<List<Ejecutivo>>(response, header, hs);
+	}
 
 }

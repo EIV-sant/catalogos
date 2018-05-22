@@ -96,4 +96,9 @@ public class CatalogoServiceImpl implements CatalogoService {
 		return ejecutivoRepository.findEjecutivosByIdTpoBca(idTpoBca);
 	}
 
+	@Override
+	public List<Ejecutivo> getEjecutivosByIdZona(Integer idZona) {
+		return ejecutivoRepository.findEjecutivosByIdZona(idZona);
+	}
+
 }
