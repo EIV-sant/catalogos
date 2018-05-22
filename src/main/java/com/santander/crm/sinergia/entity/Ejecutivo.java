@@ -24,7 +24,7 @@ public class Ejecutivo {
 	private Integer idSucursal;
 	
 	@JsonIgnore
-	@ManyToOne(optional=true)
+	@ManyToOne(optional=false)
 	@JoinColumn(name = "ID_TPO_BCA")
 	private Banca banca;
 	
