@@ -9,16 +9,22 @@ import com.santander.crm.sinergia.dao.ActividadComercialRepository;
 import com.santander.crm.sinergia.dao.BancaRepository;
 import com.santander.crm.sinergia.dao.EjecutivoRepository;
 import com.santander.crm.sinergia.dao.EstadoRepository;
+import com.santander.crm.sinergia.dao.FamiliaRepository;
 import com.santander.crm.sinergia.dao.LocalidadRepository;
 import com.santander.crm.sinergia.dao.ProductoRepository;
+import com.santander.crm.sinergia.dao.RegionRepository;
+import com.santander.crm.sinergia.dao.SubFamiliaRepository;
 import com.santander.crm.sinergia.dao.SucursalRepository;
 import com.santander.crm.sinergia.dao.TelefonoRepository;
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
 import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
+import com.santander.crm.sinergia.entity.Familia;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
+import com.santander.crm.sinergia.entity.Region;
+import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
 import com.santander.crm.sinergia.entity.Telefono;
 import com.santander.crm.sinergia.filter.RegionZonaFilter;
@@ -50,6 +56,15 @@ public class CatalogoServiceImpl implements CatalogoService {
 	
 	@Autowired
 	EjecutivoRepository ejecutivoRepository;
+	
+	@Autowired
+	FamiliaRepository familiaRepository;
+	
+	@Autowired
+	SubFamiliaRepository subFamiliaRepository;
+	
+	@Autowired
+	RegionRepository regionRepository;
 
 	@Override
 	public List<Estado> getAllEstados() {
@@ -99,6 +114,21 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Ejecutivo> getEjecutivosByIdZona(Integer idZona) {
 		return ejecutivoRepository.findEjecutivosByIdZona(idZona);
+	}
+
+	@Override
+	public List<Familia> getFamiliasByIdBanca(Integer idTpoBca) {
+		return familiaRepository.getFamiliasByIdBanca(idTpoBca);
+	}
+
+	@Override
+	public List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia) {
+		return subFamiliaRepository.getSubfamiliaByIdFamilia(idFamilia);
+	}
+
+	@Override
+	public List<Region> getAllRegiones() {
+		return regionRepository.getAllRegiones();
 	}
 
 }

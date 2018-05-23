@@ -15,6 +15,9 @@ public class Region {
 
 	@Column(name = "TXT_NOM_REGION")
 	private String nombre;
+	
+	@Column(name = "FLG_VIS")
+	private Integer flg;
 
 	public Integer getId() {
 		return id;
@@ -30,6 +33,14 @@ public class Region {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Integer getFlg() {
+		return flg;
+	}
+
+	public void setFlg(Integer flg) {
+		this.flg = flg;
 	}
 
 }

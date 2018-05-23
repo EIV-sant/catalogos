@@ -17,8 +17,11 @@ import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
 import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
+import com.santander.crm.sinergia.entity.Familia;
 import com.santander.crm.sinergia.entity.Localidad;
 import com.santander.crm.sinergia.entity.Producto;
+import com.santander.crm.sinergia.entity.Region;
+import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
 import com.santander.crm.sinergia.entity.Telefono;
 import com.santander.crm.sinergia.service.CatalogoService;
@@ -185,6 +188,53 @@ public class CatalogosController {
 		List<Ejecutivo> response = catalogoService.getEjecutivosByIdZona(idZona);
 		
 		return new ResponseEntity<List<Ejecutivo>>(response, header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de familias de una banca
+	 * @param idTpoBca el identificador de la banca
+	 * @return Lista de familias
+	 */
+	@RequestMapping(value = "/catalogos/familias/{idTpoBca}", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Familia>> familiasByBanca(@PathVariable Integer idTpoBca){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Familia> response = catalogoService.getFamiliasByIdBanca(idTpoBca);
+		
+		return new ResponseEntity<List<Familia>>(response, header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de subfamilias de una familia
+	 * @param idFamilia el identificador de la familia
+	 * @return Lista de sufamilias
+	 */
+	@RequestMapping(value = "/catalogos/subfamilias/{idFamilia}", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Subfamilia>> sufamiliasBy(@PathVariable Integer idFamilia){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Subfamilia> response = catalogoService.getSubfamiliaByIdFamilia(idFamilia);
+		
+		return new ResponseEntity<List<Subfamilia>>(response, header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de regiones
+	 * @return Lista de regiones
+	 */
+	@RequestMapping(value = "/catalogos/regiones", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Region>> regiones(){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Region> response = catalogoService.getAllRegiones();
+		
+		return new ResponseEntity<List<Region>>(response, header, hs);
 	}
 
 }
