@@ -146,7 +146,7 @@ public class CatalogoServiceImpl implements CatalogoService {
 		if (idTpoBca == null) { // si es null trae zonas que vienen nulas, q equivalen a banca 1 y 2
 			return zonaRepository.getZonasByIdBancaIsNull();
 		} else {
-			if (idTpoBca == 3) { 
+			if (idTpoBca == 3) {
 				return zonaRepository.getZonasByIdBanca(idTpoBca);
 			} else { // zonas con banca 1 o 2 son null en base
 				return zonaRepository.getZonasByIdBancaIsNull();

@@ -244,10 +244,9 @@ public class CatalogosController {
 	 * @param idTpoBca el identificador de la banca
 	 * @return Lista de zonas
 	 */
-	@RequestMapping(value = "/catalogos/zonas", method = { RequestMethod.GET })
+	@RequestMapping(value = "/catalogos/zona/{idTpoBca}", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
-	public ResponseEntity<List<Zona>> zonasByBanca(
-			@RequestParam(value = "idTpoBca", required = false) Integer idTpoBca){
+	public ResponseEntity<List<Zona>> zonasByBanca(@PathVariable Integer idTpoBca){
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
 		
