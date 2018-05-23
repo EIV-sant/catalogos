@@ -15,6 +15,12 @@ public class Zona {
 
 	@Column(name = "TXT_NOM_ZON")
 	private String nombre;
+	
+	@Column(name = "FLG_VIS")
+	private Integer flg;
+	
+	@Column(name = "ID_TPO_BCA")
+	private Integer idBanca;
 
 	public Integer getId() {
 		return id;
@@ -30,6 +36,22 @@ public class Zona {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Integer getFlg() {
+		return flg;
+	}
+
+	public void setFlg(Integer flg) {
+		this.flg = flg;
+	}
+
+	public Integer getIdBanca() {
+		return idBanca;
+	}
+
+	public void setIdBanca(Integer idBanca) {
+		this.idBanca = idBanca;
 	}
 
 }

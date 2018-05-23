@@ -16,6 +16,7 @@ import com.santander.crm.sinergia.dao.RegionRepository;
 import com.santander.crm.sinergia.dao.SubFamiliaRepository;
 import com.santander.crm.sinergia.dao.SucursalRepository;
 import com.santander.crm.sinergia.dao.TelefonoRepository;
+import com.santander.crm.sinergia.dao.ZonaRepository;
 import com.santander.crm.sinergia.entity.ActividadComercial;
 import com.santander.crm.sinergia.entity.Banca;
 import com.santander.crm.sinergia.entity.Ejecutivo;
@@ -27,6 +28,7 @@ import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
 import com.santander.crm.sinergia.entity.Telefono;
+import com.santander.crm.sinergia.entity.Zona;
 import com.santander.crm.sinergia.filter.RegionZonaFilter;
 import com.santander.crm.sinergia.service.CatalogoService;
 
@@ -50,21 +52,24 @@ public class CatalogoServiceImpl implements CatalogoService {
 
 	@Autowired
 	SucursalRepository sucursalRepository;
-	
+
 	@Autowired
 	TelefonoRepository telefonoRepository;
-	
+
 	@Autowired
 	EjecutivoRepository ejecutivoRepository;
-	
+
 	@Autowired
 	FamiliaRepository familiaRepository;
-	
+
 	@Autowired
 	SubFamiliaRepository subFamiliaRepository;
-	
+
 	@Autowired
 	RegionRepository regionRepository;
+
+	@Autowired
+	ZonaRepository zonaRepository;
 
 	@Override
 	public List<Estado> getAllEstados() {
@@ -105,7 +110,7 @@ public class CatalogoServiceImpl implements CatalogoService {
 	public List<Telefono> getAllTelefonos() {
 		return (List<Telefono>) telefonoRepository.findAll();
 	}
-	
+
 	@Override
 	public List<Ejecutivo> getEjecutivosByIdTpoBca(Integer idTpoBca) {
 		return ejecutivoRepository.findEjecutivosByIdTpoBca(idTpoBca);
@@ -134,6 +139,20 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Sucursal> getSucursalesByIdZona(Integer idZona) {
 		return sucursalRepository.getSucursalesByIdZona(idZona);
+	}
+
+	@Override
+	public List<Zona> getZonasByIdBanca(Integer idTpoBca) {
+		if (idTpoBca == null) { // si es null trae zonas que vienen nulas, q equivalen a banca 1 y 2
+			return zonaRepository.getZonasByIdBancaIsNull();
+		} else {
+			if (idTpoBca == 3) { 
+				return zonaRepository.getZonasByIdBanca(idTpoBca);
+			} else { // zonas con banca 1 o 2 son null en base
+				return zonaRepository.getZonasByIdBancaIsNull();
+			}
+		}
+
 	}
 
 }

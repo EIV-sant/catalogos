@@ -13,6 +13,7 @@ import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
 import com.santander.crm.sinergia.entity.Telefono;
+import com.santander.crm.sinergia.entity.Zona;
 import com.santander.crm.sinergia.filter.RegionZonaFilter;
 
 public interface CatalogoService {
@@ -44,5 +45,7 @@ public interface CatalogoService {
 	List<Region> getAllRegiones();
 	
 	List<Sucursal> getSucursalesByIdZona(Integer idZona);
+	
+	List<Zona> getZonasByIdBanca(Integer idTpoBca);
 
 }

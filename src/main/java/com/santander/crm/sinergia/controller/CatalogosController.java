@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santander.crm.sinergia.entity.ActividadComercial;
@@ -24,6 +25,7 @@ import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
 import com.santander.crm.sinergia.entity.Telefono;
+import com.santander.crm.sinergia.entity.Zona;
 import com.santander.crm.sinergia.service.CatalogoService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -235,6 +237,23 @@ public class CatalogosController {
 		List<Region> response = catalogoService.getAllRegiones();
 		
 		return new ResponseEntity<List<Region>>(response, header, hs);
+	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de zonas de una banca
+	 * @param idTpoBca el identificador de la banca
+	 * @return Lista de zonas
+	 */
+	@RequestMapping(value = "/catalogos/zonas", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Zona>> zonasByBanca(
+			@RequestParam(value = "idTpoBca", required = false) Integer idTpoBca){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Zona> response = catalogoService.getZonasByIdBanca(idTpoBca);
+		
+		return new ResponseEntity<List<Zona>>(response, header, hs);
 	}
 	
 	/**
