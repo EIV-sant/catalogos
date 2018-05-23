@@ -131,4 +131,9 @@ public class CatalogoServiceImpl implements CatalogoService {
 		return regionRepository.getAllRegiones();
 	}
 
+	@Override
+	public List<Sucursal> getSucursalesByIdZona(Integer idZona) {
+		return sucursalRepository.getSucursalesByIdZona(idZona);
+	}
+
 }

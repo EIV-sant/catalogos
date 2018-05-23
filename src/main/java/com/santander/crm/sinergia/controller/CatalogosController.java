@@ -236,5 +236,21 @@ public class CatalogosController {
 		
 		return new ResponseEntity<List<Region>>(response, header, hs);
 	}
+	
+	/**
+	 * Endpoint para recuperar el catálogo de sucursales de una zona
+	 * @param idZona el identificador de la zona
+	 * @return Lista de sucursales
+	 */
+	@RequestMapping(value = "/catalogos/sucursal/{idZona}", method = { RequestMethod.GET })
+	@CrossOrigin(origins = "*")
+	public ResponseEntity<List<Sucursal>> sucursalesByZona(@PathVariable Integer idZona){
+		HttpStatus hs = HttpStatus.OK;		
+		HttpHeaders header = new HttpHeaders();
+		
+		List<Sucursal> response = catalogoService.getSucursalesByIdZona(idZona);
+		
+		return new ResponseEntity<List<Sucursal>>(response, header, hs);
+	}
 
 }

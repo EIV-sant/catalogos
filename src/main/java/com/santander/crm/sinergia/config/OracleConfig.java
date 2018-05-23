@@ -16,14 +16,14 @@ import oracle.jdbc.pool.OracleDataSource;
 @Configuration
 public class OracleConfig {
 	
-	@Value("${url.oracle}")
-	private String urlOracle = "jdbc:oracle:thin:@180.181.159.40:1521:sinbande";     
+//	@Value("${url.oracle}")
+	private String urlOracle = "jdbc:oracle:thin:@localhost:1521:xe";     
 
-	@Value("${user.oracle}")
-	private String userOracle = "sin";
+//	@Value("${user.oracle}")
+	private String userOracle = "system";
 
-	@Value("${pass.oracle}")
-	private String passOracle = "sinergia";
+//	@Value("${pass.oracle}")
+	private String passOracle = "oracle";
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(OracleConfig.class);
 	

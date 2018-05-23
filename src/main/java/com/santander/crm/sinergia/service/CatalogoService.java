@@ -42,5 +42,7 @@ public interface CatalogoService {
 	List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia);
 	
 	List<Region> getAllRegiones();
+	
+	List<Sucursal> getSucursalesByIdZona(Integer idZona);
 
 }
