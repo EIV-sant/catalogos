@@ -46,6 +46,6 @@ public interface CatalogoService {
 	
 	List<Sucursal> getSucursalesByIdZona(Integer idZona);
 	
-	List<Zona> getZonasByIdBanca(Integer idTpoBca);
+	List<Zona> getZonasByIdBanca(Integer idTpoBca, Integer idRegion);
 
 }

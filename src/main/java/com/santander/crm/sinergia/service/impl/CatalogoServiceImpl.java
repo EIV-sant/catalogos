@@ -142,16 +142,23 @@ public class CatalogoServiceImpl implements CatalogoService {
 	}
 
 	@Override
-	public List<Zona> getZonasByIdBanca(Integer idTpoBca) {
-		if (idTpoBca == null) { // si es null trae zonas que vienen nulas, q equivalen a banca 1 y 2
-			return zonaRepository.getZonasByIdBancaIsNull();
-		} else {
-			if (idTpoBca == 3) {
-				return zonaRepository.getZonasByIdBanca(idTpoBca);
-			} else { // zonas con banca 1 o 2 son null en base
-				return zonaRepository.getZonasByIdBancaIsNull();
-			}
+	public List<Zona> getZonasByIdBanca(Integer idTpoBca, Integer idRegion) {
+		switch(idTpoBca) {
+		case 1:
+		case 2:
+			return zonaRepository.getZonasByIdBancaIsNull(idRegion);
+		case 3:
+			return zonaRepository.getZonasByIdBanca(idTpoBca, idRegion);
 		}
+		return null;
+//		if (idTpoBca == null) { // si es null trae zonas que vienen nulas, q equivalen a banca 1 y 2
+//			return zonaRepository.getZonasByIdBancaIsNull();
+//		} else if (idTpoBca == 3) {
+//				return zonaRepository.getZonasByIdBanca(idTpoBca);
+//			} else { // zonas con banca 1 o 2 son null en base
+//				return zonaRepository.getZonasByIdBancaIsNull();
+//			}
+//		}
 
 	}
 

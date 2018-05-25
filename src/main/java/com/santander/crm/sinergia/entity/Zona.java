@@ -3,7 +3,11 @@ package com.santander.crm.sinergia.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "SIN_MX_CAT_ZON")
@@ -21,6 +25,11 @@ public class Zona {
 	
 	@Column(name = "ID_TPO_BCA")
 	private Integer idBanca;
+	
+	@JsonIgnore
+	@ManyToOne(optional=false)
+	@JoinColumn(name = "SIN_MX_CAT_REG_ID_REG")
+	private Region region;
 
 	public Integer getId() {
 		return id;
@@ -52,6 +61,14 @@ public class Zona {
 
 	public void setIdBanca(Integer idBanca) {
 		this.idBanca = idBanca;
+	}
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 
 }
