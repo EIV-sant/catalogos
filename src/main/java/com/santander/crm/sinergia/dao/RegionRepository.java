@@ -9,7 +9,7 @@ import com.santander.crm.sinergia.entity.Region;
 
 public interface RegionRepository extends CrudRepository<Region, String> {
 	
-	@Query("SELECT r FROM Region r WHERE r.flg = 1")
+	@Query("SELECT r FROM Region r WHERE r.flg = 1 ORDER BY r.nombre")
 	List<Region> getAllRegiones();
 
 }

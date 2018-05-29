@@ -10,10 +10,10 @@ import com.santander.crm.sinergia.entity.Zona;
 
 public interface ZonaRepository extends CrudRepository<Zona, String> {
 	
-	@Query("SELECT z FROM Zona z JOIN FETCH z.region r WHERE z.flg = 1 AND z.idBanca = :idTpoBca AND r.id = :idRegion")
+	@Query("SELECT z FROM Zona z JOIN FETCH z.region r WHERE z.flg = 1 AND z.idBanca = :idTpoBca AND r.id = :idRegion ORDER BY z.nombre")
 	List<Zona> getZonasByIdBanca(@Param ("idTpoBca") Integer idTpoBca, @Param ("idRegion") Integer idRegion);
 	
-	@Query("SELECT z FROM Zona z JOIN FETCH z.region r WHERE z.flg = 1 AND z.idBanca IS NULL AND r.id = :idRegion")
+	@Query("SELECT z FROM Zona z JOIN FETCH z.region r WHERE z.flg = 1 AND z.idBanca IS NULL AND r.id = :idRegion ORDER BY z.nombre")
 	List<Zona> getZonasByIdBancaIsNull(@Param ("idRegion") Integer idRegion);
 
 }

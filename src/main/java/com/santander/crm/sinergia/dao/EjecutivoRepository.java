@@ -10,10 +10,10 @@ import com.santander.crm.sinergia.entity.Ejecutivo;
 
 public interface EjecutivoRepository extends CrudRepository<Ejecutivo, Integer> {
 	
-	@Query("SELECT e FROM Ejecutivo e JOIN FETCH e.banca b where b.id = :idTpoBca")
+	@Query("SELECT e FROM Ejecutivo e JOIN FETCH e.banca b where b.id = :idTpoBca ORDER BY e.nombre")
 	List<Ejecutivo> findEjecutivosByIdTpoBca (@Param("idTpoBca") Integer idTpoBca);
 	
-	@Query("SELECT e FROM Ejecutivo e JOIN FETCH e.banca b JOIN FETCH e.tipo t where b.id = 3 AND t.id = 81 AND e.idSucursal = :idZona")
+	@Query("SELECT e FROM Ejecutivo e JOIN FETCH e.banca b JOIN FETCH e.tipo t where b.id = 3 AND t.id = 81 AND e.idSucursal = :idZona ORDER BY e.nombre")
 	List<Ejecutivo> findEjecutivosByIdZona (@Param("idZona") Integer idZona);
 
 }

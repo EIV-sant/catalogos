@@ -10,10 +10,10 @@ import com.santander.crm.sinergia.entity.Sucursal;
 
 public interface SucursalRepository extends CrudRepository<Sucursal, Integer>, SucursalRepositoryCustom {
 	
-	@Query("SELECT s FROM Sucursal s JOIN FETCH s.localidad l where l.id = :idLocalidad")
+	@Query("SELECT s FROM Sucursal s JOIN FETCH s.localidad l where l.id = :idLocalidad  ORDER BY s.id")
 	List<Sucursal> findSucursalesByIdLocalidad (@Param("idLocalidad") Integer idLocalidad);
 	
-	@Query("SELECT s FROM Sucursal s JOIN FETCH s.zona z where z.id = :idZona")
+	@Query("SELECT s FROM Sucursal s JOIN FETCH s.zona z where z.id = :idZona ORDER BY s.id")
 	List<Sucursal> getSucursalesByIdZona (@Param("idZona") Integer idZona);
 	
 }
