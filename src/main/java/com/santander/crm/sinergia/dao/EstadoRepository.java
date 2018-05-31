@@ -9,7 +9,7 @@ import com.santander.crm.sinergia.entity.Estado;
 
 public interface EstadoRepository extends CrudRepository<Estado, Integer>{
 	
-	@Query("select e from Estado e")
+	@Query("select e from Estado e ORDER BY e.nombre")
 	List<Estado> findAllEstados();
 	
 
