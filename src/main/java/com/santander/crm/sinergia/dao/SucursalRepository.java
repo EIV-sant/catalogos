@@ -13,7 +13,7 @@ public interface SucursalRepository extends CrudRepository<Sucursal, Integer>, S
 	@Query("SELECT s FROM Sucursal s JOIN FETCH s.localidad l where l.id = :idLocalidad  ORDER BY s.id")
 	List<Sucursal> findSucursalesByIdLocalidad (@Param("idLocalidad") Integer idLocalidad);
 	
-	@Query("SELECT s FROM Sucursal s JOIN FETCH s.zona z where z.id = :idZona ORDER BY s.id")
+	@Query("SELECT s FROM Sucursal s JOIN FETCH s.zona z where z.id = :idZona AND s.id = s.numSucNdr ORDER BY s.id")
 	List<Sucursal> getSucursalesByIdZona (@Param("idZona") Integer idZona);
 	
 }

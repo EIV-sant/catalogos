@@ -20,6 +20,9 @@ public class Sucursal {
 
 	@Column(name = "TXT_NOM_SUC")
 	private String nombre;
+	
+	@Column(name = "NUM_SUC_NDR")
+	private Integer numSucNdr;
 
 	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -87,6 +90,14 @@ public class Sucursal {
 
 	public void setRegion(Region region) {
 		this.region = region;
+	}
+
+	public Integer getNumSucNdr() {
+		return numSucNdr;
+	}
+
+	public void setNumSucNdr(Integer numSucNdr) {
+		this.numSucNdr = numSucNdr;
 	}
 
 }
