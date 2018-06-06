@@ -23,6 +23,9 @@ public class Ejecutivo {
 	@Column(name = "NUM_CC")
 	private Integer idSucursal;
 	
+	@Column(name = "TXT_EXP_CMP")
+	private String expediente;
+	
 	@JsonIgnore
 	@ManyToOne(optional=false)
 	@JoinColumn(name = "ID_TPO_BCA")
@@ -71,6 +74,14 @@ public class Ejecutivo {
 
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getExpediente() {
+		return expediente;
+	}
+
+	public void setExpediente(String expediente) {
+		this.expediente = expediente;
 	}
 	
 }
