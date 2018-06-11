@@ -248,8 +248,6 @@ public class CatalogosController {
 	public ResponseEntity<List<Zona>> zonasByBanca(@PathVariable("idTpoBca") Integer idTpoBca, @PathVariable("idRegion") Integer idRegion){
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
-		System.out.println("idTpoBca-->"+idTpoBca);
-		System.out.println("idRegion-->"+idRegion);
 		List<Zona> response = catalogoService.getZonasByIdBanca(idTpoBca, idRegion);
 		
 		return new ResponseEntity<List<Zona>>(response, header, hs);
