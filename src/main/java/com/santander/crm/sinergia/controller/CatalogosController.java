@@ -212,13 +212,13 @@ public class CatalogosController {
 	 * @param idFamilia el identificador de la familia
 	 * @return Lista de sufamilias
 	 */
-	@RequestMapping(value = "/catalogos/subfamilias/{idFamilia}", method = { RequestMethod.GET })
+	@RequestMapping(value = "/catalogos/subfamilias/{idFamilia}/{idTpoBca}", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
-	public ResponseEntity<List<Subfamilia>> sufamiliasBy(@PathVariable Integer idFamilia){
+	public ResponseEntity<List<Subfamilia>> sufamiliasBy(@PathVariable Integer idFamilia, @PathVariable("idTpoBca") Integer idTpoBca){
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
 		
-		List<Subfamilia> response = catalogoService.getSubfamiliaByIdFamilia(idFamilia);
+		List<Subfamilia> response = catalogoService.getSubfamiliaByIdFamilia(idFamilia, idTpoBca);
 		
 		return new ResponseEntity<List<Subfamilia>>(response, header, hs);
 	}

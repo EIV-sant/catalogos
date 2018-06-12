@@ -40,7 +40,7 @@ public interface CatalogoService {
 	
 	List<Familia> getFamiliasByIdBanca(Integer idTpoBca);
 	
-	List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia);
+	List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia, Integer idTpoBca);
 	
 	List<Region> getAllRegiones();
 	

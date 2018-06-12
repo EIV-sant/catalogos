@@ -127,8 +127,8 @@ public class CatalogoServiceImpl implements CatalogoService {
 	}
 
 	@Override
-	public List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia) {
-		return subFamiliaRepository.getSubfamiliaByIdFamilia(idFamilia);
+	public List<Subfamilia> getSubfamiliaByIdFamilia(Integer idFamilia, Integer idTpoBca) {
+		return subFamiliaRepository.getSubfamiliaByIdFamilia(idFamilia, idTpoBca);
 	}
 
 	@Override
