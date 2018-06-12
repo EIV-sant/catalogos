@@ -43,7 +43,7 @@ public class CatalogosController {
 	 * @return Lista de Estados
 	 */
 	@RequestMapping(value = "/catalogos/estados", method = { RequestMethod.GET })
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins = "*") 
 	public ResponseEntity<List<Estado>> estados(){
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
