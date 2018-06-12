@@ -40,7 +40,7 @@ public class CatalogosController {
 	
 	/**
 	 * Endpoint para recuperar el catálogo de estados
-	 * @return Lista de Estados1
+	 * @return Lista de Estados2
 	 */
 	@RequestMapping(value = "/catalogos/estados", method = { RequestMethod.GET })
 	@CrossOrigin(origins = "*")
