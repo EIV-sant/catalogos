@@ -40,10 +40,10 @@ public class CatalogosController {
 	
 	/**
 	 * Endpoint para recuperar el catálogo de estados
-	 * @return Lista de Estados
+	 * @return Lista de Estados1
 	 */
 	@RequestMapping(value = "/catalogos/estados", method = { RequestMethod.GET })
-	@CrossOrigin(origins = "*") 
+	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<Estado>> estados(){
 		HttpStatus hs = HttpStatus.OK;		
 		HttpHeaders header = new HttpHeaders();
