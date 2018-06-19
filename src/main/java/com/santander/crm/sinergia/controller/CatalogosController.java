@@ -36,7 +36,7 @@ public class CatalogosController {
 	
 	@Autowired
 	@Qualifier("catalogoServiceImpl")
-	CatalogoService catalogoService;
+	protected CatalogoService catalogoService;
 	
 	/**
 	 * Endpoint para recuperar el catálogo de estados

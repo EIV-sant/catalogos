@@ -36,40 +36,40 @@ import com.santander.crm.sinergia.service.CatalogoService;
 public class CatalogoServiceImpl implements CatalogoService {
 
 	@Autowired
-	EstadoRepository estadoRepository;
+	protected EstadoRepository estadoRepository;
 
 	@Autowired
-	LocalidadRepository localidadRepository;
+	protected LocalidadRepository localidadRepository;
 
 	@Autowired
-	ProductoRepository productoRepository;
+	protected ProductoRepository productoRepository;
 
 	@Autowired
-	BancaRepository bancaRepository;
+	protected BancaRepository bancaRepository;
 
 	@Autowired
-	ActividadComercialRepository actividadComercialRepository;
+	protected ActividadComercialRepository actividadComercialRepository;
 
 	@Autowired
-	SucursalRepository sucursalRepository;
+	protected SucursalRepository sucursalRepository;
 
 	@Autowired
-	TelefonoRepository telefonoRepository;
+	protected TelefonoRepository telefonoRepository;
 
 	@Autowired
-	EjecutivoRepository ejecutivoRepository;
+	protected EjecutivoRepository ejecutivoRepository;
 
 	@Autowired
-	FamiliaRepository familiaRepository;
+	protected FamiliaRepository familiaRepository;
 
 	@Autowired
-	SubFamiliaRepository subFamiliaRepository;
+	protected SubFamiliaRepository subFamiliaRepository;
 
 	@Autowired
-	RegionRepository regionRepository;
+	protected RegionRepository regionRepository;
 
 	@Autowired
-	ZonaRepository zonaRepository;
+	protected ZonaRepository zonaRepository;
 
 	@Override
 	public List<Estado> getAllEstados() {

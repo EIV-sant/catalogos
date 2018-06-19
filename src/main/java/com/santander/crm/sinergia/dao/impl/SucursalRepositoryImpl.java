@@ -16,7 +16,7 @@ import com.santander.crm.sinergia.filter.RegionZonaFilter;
 public class SucursalRepositoryImpl implements SucursalRepositoryCustom {
 	
 	@PersistenceContext
-	EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	@SuppressWarnings("unchecked")
 	@Override
