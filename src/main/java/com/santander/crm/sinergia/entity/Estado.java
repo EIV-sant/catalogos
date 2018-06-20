@@ -44,11 +44,16 @@ public class Estado {
 	}
 
 	public List<Localidad> getLocalidades() {
-		return localidades;
+		List<Localidad> listAux = localidades;
+		return listAux;
 	}
 
 	public void setLocalidades(List<Localidad> localidades) {
-		this.localidades = localidades;
+		if (localidades != null) {
+			this.localidades = new ArrayList<Localidad>(localidades);
+		} else {
+			this.localidades = null;
+		}
 	}
 
 	public void addLocalidad(Localidad localidad) {
