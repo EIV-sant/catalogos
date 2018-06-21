@@ -11,7 +11,6 @@ import com.santander.crm.sinergia.dao.EjecutivoRepository;
 import com.santander.crm.sinergia.dao.EstadoRepository;
 import com.santander.crm.sinergia.dao.FamiliaRepository;
 import com.santander.crm.sinergia.dao.LocalidadRepository;
-import com.santander.crm.sinergia.dao.ProductoRepository;
 import com.santander.crm.sinergia.dao.RegionRepository;
 import com.santander.crm.sinergia.dao.SubFamiliaRepository;
 import com.santander.crm.sinergia.dao.SucursalRepository;
@@ -23,7 +22,6 @@ import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Familia;
 import com.santander.crm.sinergia.entity.Localidad;
-import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
@@ -40,9 +38,6 @@ public class CatalogoServiceImpl implements CatalogoService {
 
 	@Autowired
 	protected LocalidadRepository localidadRepository;
-
-	@Autowired
-	protected ProductoRepository productoRepository;
 
 	@Autowired
 	protected BancaRepository bancaRepository;
@@ -79,11 +74,6 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Localidad> getAllLocalidadesByIdEstado(Integer idEstado) {
 		return localidadRepository.findAllLocalidadesByIdEstado(idEstado);
-	}
-
-	@Override
-	public List<Producto> getAllProductos() {
-		return (List<Producto>) productoRepository.findAll();
 	}
 
 	@Override

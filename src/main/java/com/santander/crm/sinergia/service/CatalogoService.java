@@ -8,7 +8,6 @@ import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Familia;
 import com.santander.crm.sinergia.entity.Localidad;
-import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
@@ -21,8 +20,6 @@ public interface CatalogoService {
 	List<Estado> getAllEstados();
 
 	List<Localidad> getAllLocalidadesByIdEstado(Integer idEstado);
-
-	List<Producto> getAllProductos();
 
 	List<Banca> getAllBancas();
 

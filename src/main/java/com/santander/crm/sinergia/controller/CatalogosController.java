@@ -19,7 +19,6 @@ import com.santander.crm.sinergia.entity.Ejecutivo;
 import com.santander.crm.sinergia.entity.Estado;
 import com.santander.crm.sinergia.entity.Familia;
 import com.santander.crm.sinergia.entity.Localidad;
-import com.santander.crm.sinergia.entity.Producto;
 import com.santander.crm.sinergia.entity.Region;
 import com.santander.crm.sinergia.entity.Subfamilia;
 import com.santander.crm.sinergia.entity.Sucursal;
@@ -69,21 +68,6 @@ public class CatalogosController {
 			System.out.println("n-->"+loc.getNombre());
 		}
 		return new ResponseEntity<List<Localidad>>(response, header, hs);
-	}
-	
-	/**
-	 * Endpoint para recuperar el catálogo de productos
-	 * @return Lista de productos
-	 */
-	@RequestMapping(value = "/catalogos/productos", method = { RequestMethod.GET })
-	@CrossOrigin(origins = "*")
-	public ResponseEntity<List<Producto>> productos(){
-		HttpStatus hs = HttpStatus.OK;		
-		HttpHeaders header = new HttpHeaders();
-		
-		List<Producto> response = catalogoService.getAllProductos();
-		
-		return new ResponseEntity<List<Producto>>(response, header, hs);
 	}
 	
 	/**
