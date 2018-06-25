@@ -64,9 +64,9 @@ public class CatalogosController {
 		HttpHeaders header = new HttpHeaders();
 		
 		List<Localidad> response = catalogoService.getAllLocalidadesByIdEstado(idEstado);
-		for (Localidad loc : response) {
-			System.out.println("n-->"+loc.getNombre());
-		}
+//		for (Localidad loc : response) {
+//			System.out.println("n-->"+loc.getNombre());
+//		}
 		return new ResponseEntity<List<Localidad>>(response, header, hs);
 	}
 	
