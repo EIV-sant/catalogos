@@ -74,6 +74,7 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Override
 	public List<Localidad> getAllLocalidadesByIdEstado(Integer idEstado) {
 		return localidadRepository.findAllLocalidadesByIdEstado(idEstado);
+//		return localidadRepository.getByEstado(idEstado);
 	}
 
 	@Override
