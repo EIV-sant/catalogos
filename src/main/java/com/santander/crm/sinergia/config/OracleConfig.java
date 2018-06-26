@@ -17,16 +17,16 @@ import oracle.jdbc.pool.OracleDataSource;
 public class OracleConfig {
 	
 	@Value("${url.oracle}")
-//	private String urlOracle = "jdbc:oracle:thin:@localhost:1521:xe";   
-	private String urlOracle = "jdbc:oracle:thin:@180.181.159.40:1521:sinbande";
+	private String urlOracle = "jdbc:oracle:thin:@localhost:1521:xe";   
+//	private String urlOracle = "jdbc:oracle:thin:@180.181.159.40:1521:sinbande";
 
 	@Value("${user.oracle}")
-//	private String userOracle = "system";
-	private String userOracle = "deifsine";
+	private String userOracle = "system";
+//	private String userOracle = "deifsine";
 
 	@Value("${pass.oracle}")
-//	private String passOracle = "oracle";
-	private String passOracle = "sinergia";
+	private String passOracle = "oracle";
+//	private String passOracle = "sinergia";
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(OracleConfig.class);
 	
@@ -50,8 +50,8 @@ public class OracleConfig {
 		dataSource.setUser(userOracle);
 		dataSource.setPassword(passOracle);
 		dataSource.setURL(urlOracle);
-//		dataSource.setImplicitCachingEnabled(true);
-//		dataSource.setFastConnectionFailoverEnabled(true);
+		dataSource.setImplicitCachingEnabled(true);
+		dataSource.setFastConnectionFailoverEnabled(true);
 		
 		return dataSource;
 	}
