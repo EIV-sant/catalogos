@@ -24,6 +24,10 @@ public class Familia {
 	private String nombre;
 	
 	@JsonIgnore
+	@Column(name = "ID_ORD_PRIO")
+	private Integer idOrden;
+	
+	@JsonIgnore
 	@ManyToOne(optional=false)
 	@JoinColumn(name = "ID_TPO_BCA")
 	private Banca banca;
@@ -58,6 +62,14 @@ public class Familia {
 
 	public void setBanca(Banca banca) {
 		this.banca = banca;
+	}
+
+	public Integer getIdOrden() {
+		return idOrden;
+	}
+
+	public void setIdOrden(Integer idOrden) {
+		this.idOrden = idOrden;
 	}
 
 }

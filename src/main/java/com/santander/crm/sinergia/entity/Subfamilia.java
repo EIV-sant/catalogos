@@ -12,22 +12,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "SIN_MX_CAT_SUB_FAM")
 public class Subfamilia {
-	
+
 	@Id
 	@Column(name = "ID_CONS_SFAM")
 	private Integer id;
 
 	@Column(name = "ID_FAM")
 	private Integer idFamilia;
-	
+
 	@Column(name = "ID_SUB_FML")
 	private Integer idSubFamilia;
-	
+
 	@Column(name = "TXT_SUB_FML")
 	private String nombre;
-	
+
 	@JsonIgnore
-	@ManyToOne(optional=false)
+	@Column(name = "ID_ORD_PRIO")
+	private Integer idOrden;
+
+	@JsonIgnore
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "ID_TPO_BCA")
 	private Banca banca;
 
@@ -69,6 +73,14 @@ public class Subfamilia {
 
 	public void setBanca(Banca banca) {
 		this.banca = banca;
+	}
+
+	public Integer getIdOrden() {
+		return idOrden;
+	}
+
+	public void setIdOrden(Integer idOrden) {
+		this.idOrden = idOrden;
 	}
 
 }

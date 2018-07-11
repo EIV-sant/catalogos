@@ -10,7 +10,7 @@ import com.santander.crm.sinergia.entity.Familia;
 
 public interface FamiliaRepository extends CrudRepository<Familia, String> {
 	
-	@Query("SELECT f FROM Familia f JOIN FETCH f.banca b WHERE b.id = :idTpoBca ")
+	@Query("SELECT f FROM Familia f JOIN FETCH f.banca b WHERE b.id = :idTpoBca ORDER BY idOrden ")
 	List<Familia> getFamiliasByIdBanca(@Param("idTpoBca") Integer idTpoBca);
 
 }
